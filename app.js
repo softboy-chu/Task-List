@@ -22,7 +22,7 @@ function loadEventListeners() {
   filter.addEventListener('keyup', filterTasks);
 }
 
-// Get Tasks from LS
+// Get Tasks from local storage
 function getTasks() {
   let tasks;
   if(localStorage.getItem('tasks') === null){
@@ -76,7 +76,7 @@ function addTask(e) {
   // Append li to ul
   taskList.appendChild(li);
 
-  // Store in LS
+  // Store in local storage
   storeTaskInLocalStorage(taskInput.value);
 
   // Clear input
@@ -105,13 +105,13 @@ function removeTask(e) {
     if(confirm('Are You Sure?')) {
       e.target.parentElement.parentElement.remove();
 
-      // Remove from LS
+      // Remove from local storage
       removeTaskFromLocalStorage(e.target.parentElement.parentElement);
     }
   }
 }
 
-// Remove from LS
+// Remove from local storage
 function removeTaskFromLocalStorage(taskItem) {
   let tasks;
   if(localStorage.getItem('tasks') === null){
